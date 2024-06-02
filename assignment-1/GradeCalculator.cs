@@ -1,56 +1,24 @@
 ﻿using System;
 
-namespace MyApp
+namespace GradeCalculator
 {
-    public class GradeCalculator
+    class Program
     {
-        // Method to get the numerical grade from the user
-        public float GetGradeFromUser()
+        static void Main(string[] args)
         {
-            while (true)
-            {
-                Console.Write("Enter a numerical grade between 0 and 100: ");
-                string input = Console.ReadLine();
-                if (float.TryParse(input, out float grade) && grade >= 0 && grade <= 100)
-                {
-                    return grade;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please enter a numerical grade between 0 and 100.");
-                }
-            }
-        }
+            Console.Write("Enter the numerical grade (0-100): ");
+            int grade = int.Parse(Console.ReadLine());
 
-        // Method to determine the letter grade based on the numerical grade
-        public string DetermineLetterGrade(float grade)
-        {
             if (grade >= 90)
-            {
-                return "A";
-            }
+                Console.WriteLine("Grade: A");
             else if (grade >= 80)
-            {
-                return "B";
-            }
+                Console.WriteLine("Grade: B");
             else if (grade >= 70)
-            {
-                return "C";
-            }
+                Console.WriteLine("Grade: C");
             else if (grade >= 60)
-            {
-                return "D";
-            }
+                Console.WriteLine("Grade: D");
             else
-            {
-                return "F";
-            }
-        }
-
-        // Method to display the letter grade
-        public void DisplayLetterGrade(string letterGrade)
-        {
-            Console.WriteLine($"The corresponding letter grade is: {letterGrade}");
+                Console.WriteLine("Grade: F");
         }
     }
 }
