@@ -1,47 +1,16 @@
 ﻿using System;
 
-namespace MyApp
+namespace TicketPriceCalculator
 {
-    public class TicketPriceCalculator
+    class Program
     {
-        private const decimal RegularPrice = 10.0m;
-        private const decimal DiscountedPrice = 7.0m;
-
-        // Method to get the age from the user
-        public int GetAgeFromUser()
+        static void Main(string[] args)
         {
-            while (true)
-            {
-                Console.Write("Enter your age: ");
-                string input = Console.ReadLine();
-                if (int.TryParse(input, out int age) && age >= 0)
-                {
-                    return age;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please enter a valid age.");
-                }
-            }
-        }
+            Console.Write("Enter your age: ");
+            int age = int.Parse(Console.ReadLine());
 
-        // Method to calculate the ticket price based on age
-        public decimal CalculateTicketPrice(int age)
-        {
-            if (age <= 12 || age >= 65)
-            {
-                return DiscountedPrice;
-            }
-            else
-            {
-                return RegularPrice;
-            }
-        }
-
-        // Method to display the ticket price
-        public void DisplayTicketPrice(decimal price)
-        {
-            Console.WriteLine($"The ticket price is: GHC{price}");
+            int ticketPrice = (age <= 12 || age >= 65) ? 7 : 10;
+            Console.WriteLine($"Ticket Price: GHC{ticketPrice}");
         }
     }
 }
