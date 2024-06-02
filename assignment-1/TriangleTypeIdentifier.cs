@@ -1,57 +1,26 @@
 ﻿using System;
 
-namespace MyApp
+namespace TriangleTypeIdentifier
 {
-    public class TriangleTypeIdentifier
+    class Program
     {
-        // Method to get the sides of the triangle from the user
-        public (double, double, double) GetTriangleSidesFromUser()
+        static void Main(string[] args)
         {
-            double side1 = GetSide("Enter the length of the first side: ");
-            double side2 = GetSide("Enter the length of the second side: ");
-            double side3 = GetSide("Enter the length of the third side: ");
-            return (side1, side2, side3);
-        }
+            Console.Write("Enter the length of side 1: ");
+            double side1 = double.Parse(Console.ReadLine());
 
-        // Method to prompt user for a side length and validate it
-        private double GetSide(string prompt)
-        {
-            while (true)
-            {
-                Console.Write(prompt);
-                string input = Console.ReadLine();
-                if (double.TryParse(input, out double side) && side > 0)
-                {
-                    return side;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please enter a positive number.");
-                }
-            }
-        }
+            Console.Write("Enter the length of side 2: ");
+            double side2 = double.Parse(Console.ReadLine());
 
-        // Method to determine the type of triangle based on its sides
-        public string DetermineTriangleType(double side1, double side2, double side3)
-        {
+            Console.Write("Enter the length of side 3: ");
+            double side3 = double.Parse(Console.ReadLine());
+
             if (side1 == side2 && side2 == side3)
-            {
-                return "Equilateral";
-            }
+                Console.WriteLine("The triangle is Equilateral");
             else if (side1 == side2 || side2 == side3 || side1 == side3)
-            {
-                return "Isosceles";
-            }
+                Console.WriteLine("The triangle is Isosceles");
             else
-            {
-                return "Scalene";
-            }
-        }
-
-        // Method to display the type of triangle
-        public void DisplayTriangleType(string type)
-        {
-            Console.WriteLine($"The triangle is: {type}");
+                Console.WriteLine("The triangle is Scalene");
         }
     }
 }
